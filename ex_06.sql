@@ -1,2 +1,3 @@
-SELECT EmployeeId, FirstName || ' ' || LastName AS Name FROM Employee
-WHERE Title like '%sales%' or '%agent%';
+SELECT C.SupportRepId, Employee.FirstName || ' ' || Employee.LastName as Name, Title AS Name FROM Employee
+JOIN Customer C on Employee.EmployeeId = C.SupportRepId
+GROUP BY Name;
